@@ -1,24 +1,39 @@
 {
   "name": "Astrolabe",
   "version": "0.0.1",
-  "description": "An page-object extension for protractor",
-  "main": "index.js",
+  "description": "Page objects for protractor",
+  "keywords": [
+    "angular",
+    "angularjs",
+    "protractor",
+    "karma",
+    "e2e",
+    "test",
+    "testing",
+    "webdriver",
+    "webdriverjs",
+    "selenium"
+  ],
+  "author": "stuplum <stuplum@gmail.com>",
+  "license": "BSD",
+  "main": "lib/astrolabe.js",
+  "bin": "bin/astrolabe",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "npm test"
+      "test": "mocha test/*.js"
   },
   "repository": {
     "type": "git",
     "url": "git://github.com/stuplum/astrolabe.git"
   },
-  "keywords": [
-    "AngularJS",
-    "protractor",
-    "karma",
-    "e2e"
-  ],
-  "author": "stuplum",
-  "license": "BSD"
+  "dependencies": {
+    "protractor": "~0.8.0",
+    "underscore": "*"
+  },
+  "devDependencies": {
+    "mocha": "~1.12.1",
+    "chai": "~1.7.2"
+  }
 }
