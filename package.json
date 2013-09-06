@@ -1,0 +1,24 @@
+{
+  "name": "Astrolabe",
+  "version": "0.0.1",
+  "description": "An page-object extension for protractor",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/stuplum/astrolabe.git"
+  },
+  "keywords": [
+    "AngularJS",
+    "protractor",
+    "karma",
+    "e2e"
+  ],
+  "author": "stuplum",
+  "license": "BSD"
+}
