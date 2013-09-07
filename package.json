@@ -17,9 +17,9 @@
   "author": "stuplum <stuplum@gmail.com>",
   "license": "BSD",
   "main": "lib/astrolabe.js",
-  "bin": "bin/astrolabe",
   "directories": {
-    "test": "test"
+    "lib": "./lib",
+    "test": "./test"
   },
   "scripts": {
       "test": "mocha test/*.js"
@@ -28,12 +28,18 @@
     "type": "git",
     "url": "git://github.com/stuplum/astrolabe.git"
   },
+  "bugs": {
+    "url": "http://github.com/stuplum/astrolabe/issues"
+  },
   "dependencies": {
     "protractor": "~0.8.0",
     "underscore": "*"
   },
   "devDependencies": {
-    "mocha": "~1.12.1",
-    "chai": "~1.7.2"
+    "mocha": "*",
+    "chai": "*",
+    "sinon": "~1.7.3",
+    "sinon-chai": "~2.4.0",
+    "sandboxed-module": "0.2.1"
   }
 }

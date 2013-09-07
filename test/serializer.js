@@ -1,12 +1,26 @@
-var expect    = require('chai').expect,
-    astrolabe = require('../lib/astrolabe/serializer');
+var Serializer = require('../lib/astrolabe/utils/serializer');
 
-describe('serializer', function() {
+describe('Serializer', function() {
 
-    describe('with no arguments', function() {
+    describe('serialize', function() {
 
-        it('returns an empty array', function() {
-            expect(true).to.equal(false);
+        var scenarios = [
+            { it: 'should serialize object to string',   object: {},               expectedString: '{}' },
+            { it: 'should serialize object to string',   object: { prop: 'prop' }, expectedString: '{prop: "prop"}' },
+            { it: 'should serialize object to string',   object: { prop: 'prop', func: function() {} }, expectedString: '{prop: "prop", func: function () {}}' },
+
+            { it: 'should serialize function to string', object: function() {}, expectedString: 'function () {}' }
+        ];
+
+        scenarios.forEach(function(scenario) {
+
+            it(scenario.it, function() {
+
+                var serializer = new Serializer();
+
+                expect(serializer.serialize(scenario.object)).to.equal(scenario.expectedString);
+            });
         });
+
     });
 });

@@ -1,12 +1,38 @@
-var expect    = require('chai').expect,
-    astrolabe = require('../lib/astrolabe/module');
+var Module = require('../lib/astrolabe/module');
 
-describe('module', function() {
+describe('Module', function() {
 
-    describe('with no arguments', function() {
+    var mockBase, Module, module;
 
-        it('returns an empty array', function() {
-            expect(true).to.equal(true);
+    beforeEach(function() {
+
+        mockBase = function() {
+            this.browser = {
+                findElement: sinon.stub(),
+                findElements: sinon.stub()
+            };
+        };
+
+        Module = Sandbox.require('../lib/astrolabe/module', {
+            requires: {
+                "./base": mockBase
+            }
         });
+
+        module = new Module();
+    });
+
+    it('should find an element', function() {
+
+        module.findElement('by');
+
+        module.browser.findElement.should.have.been.calledWithExactly('by');
+    });
+
+    it('should find elements', function() {
+
+        module.findElements('by');
+
+        module.browser.findElements.should.have.been.calledWithExactly('by');
     });
 });
