@@ -1,5 +1,3 @@
-var Base = require('../lib/astrolabe/base');
-
 describe('Base', function() {
 
     var mockProtractor, Base, base;
@@ -12,10 +10,10 @@ describe('Base', function() {
         };
 
         Base = Sandbox.require('../lib/astrolabe/base', {
-            requires: {
-                "protractor": mockProtractor
-            }
+            globals: { protractor: mockProtractor }
         });
+
+        global.protractor = mockProtractor;
 
         base = new Base();
     });

@@ -1,8 +1,11 @@
 describe('Page', function() {
 
-    var mockBase, mockSerializer, mockURL, Page, page;
+    var findElementStub, findElementsStub, mockBase, mockSerializer, mockURL, Page, page;
 
     beforeEach(function() {
+
+        findElementStub  = sinon.stub();
+        findElementsStub = sinon.stub();
 
         mockBase = function() {
             this.browser = {
@@ -12,6 +15,9 @@ describe('Page', function() {
                 addMockModule: sinon.stub(),
                 clearMockModules: sinon.stub()
             };
+
+            this.findElement  = findElementStub;
+            this.findElements = findElementsStub;
         };
 
         mockSerializer = {
@@ -47,6 +53,20 @@ describe('Page', function() {
         page.browser.getCurrentUrl.returns('http://currentUrl.com');
 
         page.currentUrl.should.be.string('http://currentUrl.com');
+    });
+
+    it('should find an element', function() {
+
+        page.findElement('by');
+
+        findElementStub.should.have.been.calledWithExactly('by');
+    });
+
+    it('should find elements', function() {
+
+        page.findElements('by');
+
+        findElementsStub.should.have.been.calledWithExactly('by');
     });
 
     describe('go', function() {
@@ -91,7 +111,7 @@ describe('Page', function() {
         });
     });
 
-    describe('mockBase', function() {
+    describe('mockModule', function() {
 
         it('should add a mock angular module', function() {
 

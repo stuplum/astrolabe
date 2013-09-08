@@ -1,22 +1,19 @@
-var Module = require('../lib/astrolabe/module');
-
 describe('Module', function() {
 
-    var mockBase, Module, module;
+    var findElementStub, findElementsStub, mockBase, Module, module;
 
     beforeEach(function() {
 
+        findElementStub  = sinon.stub();
+        findElementsStub = sinon.stub();
+
         mockBase = function() {
-            this.browser = {
-                findElement: sinon.stub(),
-                findElements: sinon.stub()
-            };
+            this.findElement  = findElementStub;
+            this.findElements = findElementsStub;
         };
 
         Module = Sandbox.require('../lib/astrolabe/module', {
-            requires: {
-                "./base": mockBase
-            }
+            requires: { "./base": mockBase }
         });
 
         module = new Module();
@@ -26,13 +23,13 @@ describe('Module', function() {
 
         module.findElement('by');
 
-        module.browser.findElement.should.have.been.calledWithExactly('by');
+        findElementStub.should.have.been.calledWithExactly('by');
     });
 
     it('should find elements', function() {
 
         module.findElements('by');
 
-        module.browser.findElements.should.have.been.calledWithExactly('by');
+        findElementsStub.should.have.been.calledWithExactly('by');
     });
 });
