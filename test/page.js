@@ -27,8 +27,8 @@ describe('Page', function() {
         Page = Sandbox.require('../lib/astrolabe/page', {
             requires: {
                 "./base": mockBase,
-                "utils/url": sinon.stub().withArgs('/').returns(mockURL),
-                "utils/serializer": sinon.stub().returns(mockSerializer)
+                "./utils/url": sinon.stub().withArgs('/').returns(mockURL),
+                "./utils/serializer": sinon.stub().returns(mockSerializer)
             }
         });
 
