@@ -39,14 +39,14 @@ describe('Page', function() {
 
     it('should have a title', function() {
 
-        this.page.browser.getTitle.returns('page title');
+        this.page.driver.getTitle.returns('page title');
 
         this.page.title.should.be.string('page title');
     });
 
     it('should have a currentUrl', function() {
 
-        this.page.browser.getCurrentUrl.returns('http://currentUrl.com');
+        this.page.driver.getCurrentUrl.returns('http://currentUrl.com');
 
         this.page.currentUrl.should.be.string('http://currentUrl.com');
     });
@@ -55,14 +55,14 @@ describe('Page', function() {
 
         this.page.findElement('pageFindElementBy');
 
-        this.page.browser.findElement.should.have.been.calledWithExactly('pageFindElementBy');
+        this.page.driver.findElement.should.have.been.calledWithExactly('pageFindElementBy');
     });
 
     it('should find elements', function() {
 
         this.page.findElements('pageFindElementsBy');
 
-        this.page.browser.findElements.should.have.been.calledWithExactly('pageFindElementsBy');
+        this.page.driver.findElements.should.have.been.calledWithExactly('pageFindElementsBy');
     });
 
     describe('go', function() {
@@ -71,7 +71,7 @@ describe('Page', function() {
 
             this.page.go();
 
-            this.page.browser.get.should.have.been.calledWithExactly('fake/url');
+            this.page.driver.get.should.have.been.calledWithExactly('fake/url');
         });
 
         it('should add paths to base url', function() {
@@ -113,8 +113,8 @@ describe('Page', function() {
 
             this.page.mockModule('myModule', { test: "script" });
 
-            this.page.browser.addMockModule.should.have.been.calledOnce;
-            this.page.browser.addMockModule.should.have.been.calledWithExactly('myModuleMock', 'angular.module(\'myModuleMock\', []).value(\'myModule\', serialized script);');
+            this.page.driver.addMockModule.should.have.been.calledOnce;
+            this.page.driver.addMockModule.should.have.been.calledWithExactly('myModuleMock', 'angular.module(\'myModuleMock\', []).value(\'myModule\', serialized script);');
         });
     });
 
@@ -124,7 +124,7 @@ describe('Page', function() {
 
             this.page.clearMocks();
 
-            this.page.browser.clearMockModules.should.have.been.calledOnce;
+            this.page.driver.clearMockModules.should.have.been.calledOnce;
         });
     });
 });

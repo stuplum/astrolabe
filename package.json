@@ -1,6 +1,6 @@
 {
   "name": "astrolabe",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Page objects for protractor",
   "keywords": [
     "angular",
@@ -32,7 +32,6 @@
     "url": "http://github.com/stuplum/astrolabe/issues"
   },
   "dependencies": {
-    "protractor": "~0.8.0",
     "underscore": "*"
   },
   "devDependencies": {

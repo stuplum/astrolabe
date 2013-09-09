@@ -18,10 +18,10 @@ describe('Base', function() {
         this.base.by.should.be.string('protractor "By" property');
     });
 
-    it('should have a browser instance', function() {
+    it('should have a driver instance', function() {
 
-        this.mockProtractor.getInstance.returns('browser instance');
+        this.mockProtractor.getInstance.returns('driver instance');
 
-        this.base.browser.should.be.string('browser instance');
+        this.base.driver.should.be.string('driver instance');
     });
 });

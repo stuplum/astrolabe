@@ -35,7 +35,7 @@ describe('Module', function() {
 
         ctxFindElementStub.should.have.been.calledWithExactly('moduleFindElementBy');
 
-        this.module.browser.findElement.should.not.have.been.called;
+        this.module.driver.findElement.should.not.have.been.called;
     });
 
     it('should find elements', function() {
@@ -44,6 +44,6 @@ describe('Module', function() {
 
         ctxFindElementsStub.should.have.been.calledWithExactly('moduleFindElementsBy');
 
-        this.module.browser.findElement.should.not.have.been.called;
+        this.module.driver.findElement.should.not.have.been.called;
     });
 });
