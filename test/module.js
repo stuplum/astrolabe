@@ -1,35 +1,49 @@
 describe('Module', function() {
 
-    var findElementStub, findElementsStub, mockBase, Module, module;
+    var ctxFindElementStub, ctxFindElementsStub;
 
     beforeEach(function() {
 
-        findElementStub  = sinon.stub();
-        findElementsStub = sinon.stub();
-
-        mockBase = function() {
-            this.findElement  = findElementStub;
-            this.findElements = findElementsStub;
+        var mockDriver = {
+            findElement: sinon.stub(),
+            findElements: sinon.stub()
         };
 
-        Module = Sandbox.require('../lib/astrolabe/module', {
-            requires: { "./base": mockBase }
-        });
+        global.protractor = {
+            By: 'protractor "By" property',
+            getInstance: function() { return mockDriver; }
+        };
 
-        module = new Module();
+        var Module = require('../lib/astrolabe/module');
+
+        ctxFindElementStub  = sinon.stub();
+        ctxFindElementsStub = sinon.stub();
+
+        this.module = new Module({
+            findElement: ctxFindElementStub,
+            findElements: ctxFindElementsStub
+        });
+    });
+
+    afterEach(function() {
+        global.protractor = undefined;
     });
 
     it('should find an element', function() {
 
-        module.findElement('by');
+        this.module.findElement('moduleFindElementBy');
 
-        findElementStub.should.have.been.calledWithExactly('by');
+        ctxFindElementStub.should.have.been.calledWithExactly('moduleFindElementBy');
+
+        this.module.browser.findElement.should.not.have.been.called;
     });
 
     it('should find elements', function() {
 
-        module.findElements('by');
+        this.module.findElements('moduleFindElementsBy');
 
-        findElementsStub.should.have.been.calledWithExactly('by');
+        ctxFindElementsStub.should.have.been.calledWithExactly('moduleFindElementsBy');
+
+        this.module.browser.findElement.should.not.have.been.called;
     });
 });
