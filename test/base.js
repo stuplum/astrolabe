@@ -49,7 +49,23 @@ describe('Base', function() {
         extended.newFunc.should.have.been.calledWithExactly('test');
     });
 
-    it('should create an instance extended class', function() {
+    it('should extend an already extended class', function() {
+
+        var Extended, ExtendedAgain;
+
+        Extended = Base.extend({
+            newProp: { writable: false, enumerable: false, value: 'new prop value' }
+        });
+
+        ExtendedAgain = Extended.extend({
+            anotherNewProp: { writable: false, enumerable: false, value: 'another new prop value' }
+        });
+
+        expect(new Extended()).to.be.an.instanceof(Base);
+        expect(new ExtendedAgain()).to.be.an.instanceof(Extended);
+    });
+
+    it('should create an instance of an extended class', function() {
 
         var extended = Base.create({
             newProp: { writable: false, enumerable: false, value: 'new prop value' },
@@ -57,6 +73,22 @@ describe('Base', function() {
         });
 
         expect(extended).to.be.an.instanceof(Base);
+    });
+
+    it('should create an instance of an previously extended class', function() {
+
+        var Extended, extendedAgain;
+
+        Extended = Base.extend({
+            newProp: { writable: false, enumerable: false, value: 'new prop value' }
+        });
+
+        extendedAgain = Extended.create({
+            anotherNewProp: { writable: false, enumerable: false, value: 'new prop value' },
+            newFunc: sinon.stub()
+        });
+
+        expect(extendedAgain).to.be.an.instanceof(Extended);
     });
 
     it('should create an instance with functions', function() {
