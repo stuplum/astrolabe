@@ -35,6 +35,7 @@
     "underscore": "*"
   },
   "devDependencies": {
+    "protractor": "~0.9.0",
     "mocha": "*",
     "chai": "*",
     "sinon": "~1.7.3",
