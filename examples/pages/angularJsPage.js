@@ -1,4 +1,4 @@
-var Page = require('astrolabe').Page;
+var Page = require('../../lib/astrolabe').Page;
 
 var content = {
 
