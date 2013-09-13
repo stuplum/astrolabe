@@ -30,8 +30,8 @@ describe('Base', function() {
     it('should extend the base class', function() {
 
         var Extended = Base.extend({
-            newProp: { writable: false, enumerable: false, value: 'new prop value' },
-            newFunc: { writable: false, enumerable: false, value: function() { return 'new func value'} }
+            newProp: { writable: false, value: 'new prop value' },
+            newFunc: { writable: false, value: function() { return 'new func value'} }
         });
 
         var extended = new Extended();
@@ -42,7 +42,7 @@ describe('Base', function() {
         expect(extended.newFunc()).to.be.a.string('new func value');
     });
 
-    it('should extend an already extended class', function() {
+    it.only('should extend an already extended class', function() {
 
         var SubClass    = Base.extend({}),
             SubSubClass = SubClass.extend({});
@@ -54,8 +54,8 @@ describe('Base', function() {
     it('should create an instance of an extended class', function() {
 
         var subClass = Base.create({
-            newProp: { writable: false, enumerable: false, value: 'new prop value' },
-            newFunc: { writable: false, enumerable: false, value: function() { return 'new func value'; } }
+            newProp: { writable: false, value: 'new prop value' },
+            newFunc: { writable: false, value: function() { return 'new func value'; } }
         });
 
         expect(subClass).to.be.an.instanceof(Base);
@@ -69,11 +69,11 @@ describe('Base', function() {
         var SubClass, subSubClass;
 
         SubClass = Base.extend({
-            newProp: { writable: false, enumerable: false, value: 'sub prop value' }
+            newProp: { writable: false, value: 'sub prop value' }
         });
 
         subSubClass = SubClass.create({
-            newProp: { writable: false, enumerable: false, value: 'sub sub prop value' }
+            newProp: { writable: false, value: 'sub sub prop value' }
         });
 
         expect(subSubClass).to.be.an.instanceof(SubClass);
