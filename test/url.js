@@ -49,5 +49,6 @@ describe('URL', function() {
 
             expect(this.url.url).to.have.string('base/testme?test=test&another=another');
         });
-    })
+    });
+
 });

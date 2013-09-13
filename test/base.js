@@ -30,8 +30,8 @@ describe('Base', function() {
     it('should extend the base class', function() {
 
         var Extended = Base.extend({
-            newProp: { writable: false, value: 'new prop value' },
-            newFunc: { writable: false, value: function() { return 'new func value'} }
+            newProp: { value: 'new prop value' },
+            newFunc: { value: function() { return 'new func value'} }
         });
 
         var extended = new Extended();
@@ -42,10 +42,10 @@ describe('Base', function() {
         expect(extended.newFunc()).to.be.a.string('new func value');
     });
 
-    it.only('should extend an already extended class', function() {
+    it('should extend an already extended class', function() {
 
-        var SubClass    = Base.extend({}),
-            SubSubClass = SubClass.extend({});
+        var SubClass = Base.extend(),
+            SubSubClass = SubClass.extend();
 
         expect(new SubClass()).to.be.an.instanceof(Base);
         expect(new SubSubClass()).to.be.an.instanceof(SubClass);
@@ -54,8 +54,8 @@ describe('Base', function() {
     it('should create an instance of an extended class', function() {
 
         var subClass = Base.create({
-            newProp: { writable: false, value: 'new prop value' },
-            newFunc: { writable: false, value: function() { return 'new func value'; } }
+            newProp: { value: 'new prop value' },
+            newFunc: { value: function() { return 'new func value'; } }
         });
 
         expect(subClass).to.be.an.instanceof(Base);
@@ -69,16 +69,23 @@ describe('Base', function() {
         var SubClass, subSubClass;
 
         SubClass = Base.extend({
-            newProp: { writable: false, value: 'sub prop value' }
+            prop1: { value: 'prop1' },
+            prop2: { value: 'prop2' }
         });
 
-        subSubClass = SubClass.create({
-            newProp: { writable: false, value: 'sub sub prop value' }
-        });
+        subSubClass = SubClass.create(function() {
+                this.prop4 = 'prop4';
+            },{
+                prop2: { value: 'newProp2' },
+                prop3: { value: 'prop3' }
+            });
 
         expect(subSubClass).to.be.an.instanceof(SubClass);
 
-        expect(subSubClass.newProp).to.be.a.string('sub sub prop value');
+        expect(subSubClass.prop1).to.be.a.string('prop1');
+        expect(subSubClass.prop2).to.be.a.string('newProp2');
+        expect(subSubClass.prop3).to.be.a.string('prop3');
+        expect(subSubClass.prop4).to.be.a.string('prop4');
     });
 
 });
