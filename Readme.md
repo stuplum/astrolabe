@@ -5,12 +5,46 @@ Astrolabe [![Build Status](https://travis-ci.org/stuplum/astrolabe.png?branch=ma
 
 It is inspired by Geb from the groovy world.
 
+Installation
+------------
 
-Using Astrolabe
----------------
+via [npm (node package manager)](http://github.com/isaacs/npm)
+
+    $ npm install astrolabe
 
 
+Usage
+-----
 
+Example signInPage.js
+
+``` js
+var Page = require('astrolabe').Page;
+
+module.exports = Page.create({
+
+    url: { value: 'http://mysite.com/signin' },
+
+    username: { get: function() { return this.findElement(this.by.input('username')); } }, // finds an input element with the name 'username'
+    submit:   { get: function() { return this.findElement(this.by.id('submit')); } }       // finds an element with the id 'submit'
+});
+```
+
+can be used in your tests:
+
+``` js
+var signInPage = require('./path/to/signInPage');
+
+...
+
+signInPage.go(); // will send browser to 'http://mysite.com/signin'
+
+signInPage.username.sendKeys('a username'); // will fill the username input with the text 'a username'
+
+signInPage.submit.click(); // will click on the submit element
+
+...
+```
 
 Cloning and running Astrolabe's tests
 -------------------------------------
@@ -21,6 +55,7 @@ Clone the github repository.
     npm install
 
     npm test
+
 
 Running Astrolabe's example protractor test
 -------------------------------------------
