@@ -3,8 +3,6 @@ Astrolabe [![Build Status](https://travis-ci.org/stuplum/astrolabe.png?branch=ma
 
 `Astrolabe` is an extension for [protractor](https://github.com/juliemr/protractor) that adds page objects to your functional/e2e tests.
 
-It is inspired by Geb from the groovy world.
-
 Installation
 ------------
 
