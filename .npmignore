@@ -1,0 +1,11 @@
+test/
+examples/
+selenium/
+
+.idea
+.npmignore
+
+chromedriver.log
+
+*.iml
+*.yml
