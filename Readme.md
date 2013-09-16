@@ -44,6 +44,46 @@ signInPage.submit.click(); // will click on the submit element
 ...
 ```
 
+It is possible to create convienience methods to wrap up common logic.
+
+Example signInPage.js
+
+``` js
+var Page = require('astrolabe').Page;
+
+module.exports = Page.create({
+
+    url: { value: 'http://mysite.com/signin' },
+
+    username: { get: function() { return this.findElement(this.by.input('username')); } },
+    password: { get: function() { return this.findElement(this.by.input('password')); } },
+    submit:   { get: function() { return this.findElement(this.by.id('submit')); } },
+
+    // Adds a signIn method to the page object.
+    signIn:   { value: function(username, password) {
+
+        this.go();
+
+        this.username.sendKeys(username);
+        this.password.sendKeys(password);
+
+        this.submit.click();
+    } }
+});
+```
+
+can be used in your tests:
+
+``` js
+var signInPage = require('./path/to/signInPage');
+
+...
+
+signInPage.signIn('test user', 'testpassword'); // will navigate to sign in page, enter username and password then click submit.
+
+...
+```
+
 Cloning and running Astrolabe's tests
 -------------------------------------
 Clone the github repository.
