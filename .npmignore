@@ -5,6 +5,7 @@ selenium/
 .idea
 .npmignore
 
+Readme.md
 chromedriver.log
 
 *.iml

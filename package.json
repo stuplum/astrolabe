@@ -1,6 +1,6 @@
 {
   "name": "astrolabe",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "Page objects for protractor",
   "keywords": [
     "angular",
