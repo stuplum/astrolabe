@@ -32,7 +32,8 @@
     "url": "http://github.com/stuplum/astrolabe/issues"
   },
   "dependencies": {
-    "underscore": "*"
+    "underscore": "*",
+    "protractor": "*"
   },
   "devDependencies": {
     "mocha": "*",
