@@ -58,7 +58,6 @@ describe('Page', function() {
         this.page.baseUrl.should.be.string('http://baseUrl.com');
     });
 
-
     it('should find an element', function() {
 
         this.page.findElement('pageFindElementBy');
