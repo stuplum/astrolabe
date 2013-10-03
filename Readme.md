@@ -28,23 +28,41 @@ module.exports = Page.create({
 });
 ```
 
-can be used in your tests:
+adding to tests:
 
 ``` js
 var signInPage = require('./path/to/signInPage');
 
 ...
+```
 
+navigating:
+
+``` js
 signInPage.go(); // will send browser to 'http://mysite.com/signin'
 
+signInPage.go('some', 'path'); // will send browser to 'http://mysite.com/signin/some/path'
+signInPage.go('some/path');    // will send browser to 'http://mysite.com/signin/some/path'
+
+signInPage.go({ some: 'query' }); // will send browser to 'http://mysite.com/signin?some=query'
+```
+
+interacting: (See [Protractor API Docs](https://github.com/angular/protractor/blob/master/docs/api.md) for more info on available api methods)
+
+``` js
 signInPage.username.sendKeys('a username'); // will fill the username input with the text 'a username'
 
 signInPage.submit.click(); // will click on the submit element
-
-...
 ```
 
-It is possible to create convienience methods to wrap up common logic.
+``` js
+signInPage.username.getAttribute('value'); // will return a promise that is resolved with the value of the text field, in this case 'a username'
+
+// this can be used within an expectation
+expect(signInPage.username.getAttribute('value')).toBe('a username');
+```
+
+It is possible to create convenience methods to wrap up common logic.
 
 Example signInPage.js
 
