@@ -51,6 +51,13 @@ describe('Page', function() {
         this.page.currentUrl.should.be.string('http://currentUrl.com');
     });
 
+    it('should have a baseUrl', function() {
+
+        this.page.driver.baseUrl = 'http://baseUrl.com';
+
+        this.page.baseUrl.should.be.string('http://baseUrl.com');
+    });
+
     it('should find an element', function() {
 
         this.page.findElement('pageFindElementBy');
