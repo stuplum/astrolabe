@@ -22,6 +22,27 @@ describe('URL', function() {
             expect(this.url.url).to.have.string('base/test/another');
         });
 
+        it('should add a multiple paths to a base url', function() {
+
+            this.url.addPath('test', 'me/too');
+
+            expect(this.url.url).to.have.string('base/test/me/too');
+        });
+
+        it('should support leading slashes', function() {
+
+            this.url.addPath('/test', '/another');
+
+            expect(this.url.url).to.have.string('base/test/another');
+        });
+
+        it('should support leading slashes', function() {
+
+            this.url.addPath('/test', '/me/three');
+
+            expect(this.url.url).to.have.string('base/test/me/three');
+        });
+
     });
 
     describe('addParam', function() {
