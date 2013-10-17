@@ -114,6 +114,17 @@ describe('Page', function() {
         });
     });
 
+    describe('mockBackend', function() {
+
+        it('should add a mock angular module with run config', function() {
+
+            this.page.mockBackend(function() { return "test"; });
+
+            this.page.driver.addMockModule.should.have.been.calledOnce;
+            this.page.driver.addMockModule.should.have.been.calledWithExactly('httpBackendMock', 'angular.module(\'httpBackendMock\', [\'ngMockE2E\']).run(serialized script);');
+        });
+    });
+
     describe('mockModule', function() {
 
         it('should add a mock angular module', function() {
