@@ -13,7 +13,16 @@ describe('Page', function() {
         };
 
         global.protractor = {
-            By: 'protractor "By" property',
+            By:  { 
+                css: sinon.stub(), 
+                select: sinon.stub(),  
+                input: sinon.stub(), 
+                binding: sinon.stub(),
+                model: sinon.stub(),
+                textarea: sinon.stub(),
+                buttonText: sinon.stub(),
+                textarea: sinon.stub(),
+            },
             getInstance: function() { return mockDriver; }
         };
 
@@ -70,6 +79,62 @@ describe('Page', function() {
         this.page.findElements('pageFindElementsBy');
 
         this.page.driver.findElements.should.have.been.calledWithExactly('pageFindElementsBy');
+    });
+
+     it('should find by css', function () {
+        this.page.findByCss('findByCss');
+        this.page.by.css.should.have.been.calledOnce;
+        this.page.driver.findElement.should.have.been.calledOnce;
+        this.page.by.css.should.have.been.calledWithExactly('findByCss');
+    });
+
+     it('should find all by css', function () {
+        this.page.findAllByCss('findAllByCss');
+        this.page.by.css.should.have.been.calledOnce;
+        this.page.driver.findElements.should.have.been.calledOnce;
+        this.page.by.css.should.have.been.calledWithExactly('findAllByCss');
+    });
+
+     it('should find select', function () {
+        this.page.findSelect('findSelect');
+        this.page.by.select.should.have.been.calledOnce;
+        this.page.driver.findElement.should.have.been.calledOnce;
+        this.page.by.select.should.have.been.calledWithExactly('findSelect');
+    });
+
+     it('should find by input', function () {
+        this.page.findInput('findInput');
+        this.page.by.input.should.have.been.calledOnce;
+        this.page.driver.findElement.should.have.been.calledOnce;
+        this.page.by.input.should.have.been.calledWithExactly('findInput');
+    });
+
+     it('should find by binding', function () {
+        this.page.findByBinding('findByBinding');
+        this.page.by.binding.should.have.been.calledOnce;
+        this.page.driver.findElement.should.have.been.calledOnce;
+        this.page.by.binding.should.have.been.calledWithExactly('findByBinding');
+    });
+
+     it('should find by model', function () {
+        this.page.findByModel('findByModel');
+        this.page.by.model.should.have.been.calledOnce;
+        this.page.driver.findElement.should.have.been.calledOnce;
+        this.page.by.model.should.have.been.calledWithExactly('findByModel');
+    });
+
+     it('should find button by text', function () {
+        this.page.findButtonByText('findButtonByText');
+        this.page.by.buttonText.should.have.been.calledOnce;
+        this.page.driver.findElement.should.have.been.calledOnce;
+        this.page.by.buttonText.should.have.been.calledWithExactly('findButtonByText');
+    });
+
+     it('should find by textarea', function () {
+        this.page.findTextArea('findTextArea');
+        this.page.by.textarea.should.have.been.calledOnce;
+        this.page.driver.findElement.should.have.been.calledOnce;
+        this.page.by.textarea.should.have.been.calledWithExactly('findTextArea');
     });
 
     describe('go', function() {
