@@ -81,57 +81,57 @@ describe('Page', function() {
         this.page.driver.findElements.should.have.been.calledWithExactly('pageFindElementsBy');
     });
 
-     it('should find by css', function () {
-        this.page.findByCss('findByCss');
+    it('should find by css', function () {
+        this.page.find.by.css('findByCss');
         this.page.by.css.should.have.been.calledOnce;
         this.page.driver.findElement.should.have.been.calledOnce;
         this.page.by.css.should.have.been.calledWithExactly('findByCss');
     });
 
-     it('should find all by css', function () {
-        this.page.findAllByCss('findAllByCss');
+    it('should find all by css', function () {
+        this.page.find.all.by.css('findAllByCss');
         this.page.by.css.should.have.been.calledOnce;
         this.page.driver.findElements.should.have.been.calledOnce;
         this.page.by.css.should.have.been.calledWithExactly('findAllByCss');
     });
 
-     it('should find select', function () {
-        this.page.findSelect('findSelect');
+    it('should find select', function () {
+        this.page.find.by.select('findSelect');
         this.page.by.select.should.have.been.calledOnce;
         this.page.driver.findElement.should.have.been.calledOnce;
         this.page.by.select.should.have.been.calledWithExactly('findSelect');
     });
 
-     it('should find by input', function () {
-        this.page.findInput('findInput');
+    it('should find by input', function () {
+        this.page.find.by.input('findInput');
         this.page.by.input.should.have.been.calledOnce;
         this.page.driver.findElement.should.have.been.calledOnce;
         this.page.by.input.should.have.been.calledWithExactly('findInput');
     });
 
-     it('should find by binding', function () {
-        this.page.findByBinding('findByBinding');
+    it('should find by binding', function () {
+        this.page.find.by.binding('findByBinding');
         this.page.by.binding.should.have.been.calledOnce;
         this.page.driver.findElement.should.have.been.calledOnce;
         this.page.by.binding.should.have.been.calledWithExactly('findByBinding');
     });
 
-     it('should find by model', function () {
-        this.page.findByModel('findByModel');
+    it('should find by model', function () {
+        this.page.find.by.model('findByModel');
         this.page.by.model.should.have.been.calledOnce;
         this.page.driver.findElement.should.have.been.calledOnce;
         this.page.by.model.should.have.been.calledWithExactly('findByModel');
     });
 
-     it('should find button by text', function () {
-        this.page.findButtonByText('findButtonByText');
+    it('should find button by text', function () {
+        this.page.find.by.buttonText('findButtonByText');
         this.page.by.buttonText.should.have.been.calledOnce;
         this.page.driver.findElement.should.have.been.calledOnce;
         this.page.by.buttonText.should.have.been.calledWithExactly('findButtonByText');
     });
 
-     it('should find by textarea', function () {
-        this.page.findTextArea('findTextArea');
+    it('should find by textarea', function () {
+        this.page.find.by.textarea('findTextArea');
         this.page.by.textarea.should.have.been.calledOnce;
         this.page.driver.findElement.should.have.been.calledOnce;
         this.page.by.textarea.should.have.been.calledWithExactly('findTextArea');
