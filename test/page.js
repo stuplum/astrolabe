@@ -203,7 +203,126 @@ describe('Page', function() {
         this.page.by.partialButtonText.should.have.been.calledWithExactly('partialButtonText');
     });
 
+    it('should find all by id', function () {
+        this.page.find.all.by.id('findAllById');
+        this.page.by.id.should.have.been.calledOnce;
+        this.page.driver.findElements.should.have.been.calledOnce;
+        this.page.by.id.should.have.been.calledWithExactly('findAllById');
+    });
+
     it('should find all by css', function () {
+        this.page.find.all.by.css('findAllByCss');
+        this.page.by.css.should.have.been.calledOnce;
+        this.page.driver.findElements.should.have.been.calledOnce;
+        this.page.by.css.should.have.been.calledWithExactly('findAllByCss');
+    });
+
+    it('should find all by xpath', function () {
+        this.page.find.all.by.xpath('findAllByXpath');
+        this.page.by.xpath.should.have.been.calledOnce;
+        this.page.driver.findElements.should.have.been.calledOnce;
+        this.page.by.xpath.should.have.been.calledWithExactly('findAllByXpath');
+    });
+
+    it('should find all by name', function () {
+        this.page.find.all.by.name('findAllByName');
+        this.page.by.name.should.have.been.calledOnce;
+        this.page.driver.findElements.should.have.been.calledOnce;
+        this.page.by.name.should.have.been.calledWithExactly('findAllByName');
+    });
+
+    it('should find all by tagName', function () {
+        this.page.find.all.by.tagName('findAllByTagName');
+        this.page.by.tagName.should.have.been.calledOnce;
+        this.page.driver.findElements.should.have.been.calledOnce;
+        this.page.by.tagName.should.have.been.calledWithExactly('findAllByTagName');
+    });
+
+    it('should find all by className', function () {
+        this.page.find.all.by.className('findAllByClassName');
+        this.page.by.className.should.have.been.calledOnce;
+        this.page.driver.findElements.should.have.been.calledOnce;
+        this.page.by.className.should.have.been.calledWithExactly('findAllByClassName');
+    });
+
+    it('should find all by linkText', function () {
+        this.page.find.all.by.linkText('findAllByLinkText');
+        this.page.by.linkText.should.have.been.calledOnce;
+        this.page.driver.findElements.should.have.been.calledOnce;
+        this.page.by.linkText.should.have.been.calledWithExactly('findAllByLinkText');
+    });
+
+    it('should find all by partialLinkText', function () {
+        this.page.find.all.by.partialLinkText('findAllByPartialLinkText');
+        this.page.by.partialLinkText.should.have.been.calledOnce;
+        this.page.driver.findElements.should.have.been.calledOnce;
+        this.page.by.partialLinkText.should.have.been.calledWithExactly('findAllByPartialLinkText');
+    });
+
+    it('should find all by js', function () {
+        this.page.find.all.by.js('findAllByJs');
+        this.page.by.js.should.have.been.calledOnce;
+        this.page.driver.findElements.should.have.been.calledOnce;
+        this.page.by.js.should.have.been.calledWithExactly('findAllByJs');
+    });
+
+    it('should find all by binding', function () {
+        this.page.find.all.by.binding('findAllByBinding');
+        this.page.by.binding.should.have.been.calledOnce;
+        this.page.driver.findElements.should.have.been.calledOnce;
+        this.page.by.binding.should.have.been.calledWithExactly('findAllByBinding');
+    });
+
+    it('should find all by select', function () {
+        this.page.find.all.by.select('findAllBySelect');
+        this.page.by.select.should.have.been.calledOnce;
+        this.page.driver.findElements.should.have.been.calledOnce;
+        this.page.by.select.should.have.been.calledWithExactly('findAllBySelect');
+    });
+
+    it('should find all by selectedOption', function () {
+        this.page.find.all.by.selectedOption('findAllBySelectedOption');
+        this.page.by.selectedOption.should.have.been.calledOnce;
+        this.page.driver.findElements.should.have.been.calledOnce;
+        this.page.by.selectedOption.should.have.been.calledWithExactly('findAllBySelectedOption');
+    });
+
+    it('should find all by input', function () {
+        this.page.find.all.by.input('findAllByInput');
+        this.page.by.input.should.have.been.calledOnce;
+        this.page.driver.findElements.should.have.been.calledOnce;
+        this.page.by.input.should.have.been.calledWithExactly('findAllByInput');
+    });
+
+    it('should find all by model', function () {
+        this.page.find.all.by.model('findAllByModel');
+        this.page.by.model.should.have.been.calledOnce;
+        this.page.driver.findElements.should.have.been.calledOnce;
+        this.page.by.model.should.have.been.calledWithExactly('findAllByModel');
+    });
+
+    it('should find all by textarea', function () {
+        this.page.find.all.by.css('findAllByCss');
+        this.page.by.css.should.have.been.calledOnce;
+        this.page.driver.findElements.should.have.been.calledOnce;
+        this.page.by.css.should.have.been.calledWithExactly('findAllByCss');
+    });
+
+    it('should find all by repeater', function () {
+        this.page.find.all.by.css('findAllByCss');
+        this.page.by.css.should.have.been.calledOnce;
+        this.page.driver.findElements.should.have.been.calledOnce;
+        this.page.by.css.should.have.been.calledWithExactly('findAllByCss');
+    });
+
+    it('should find all by buttonText', function () {
+        this.page.find.all.by.css('findAllByCss');
+        this.page.by.css.should.have.been.calledOnce;
+        this.page.driver.findElements.should.have.been.calledOnce;
+        this.page.by.css.should.have.been.calledWithExactly('findAllByCss');
+    });
+
+    it('should find all by partialButtonText', function () {
         this.page.find.all.by.css('findAllByCss');
         this.page.by.css.should.have.been.calledOnce;
         this.page.driver.findElements.should.have.been.calledOnce;
