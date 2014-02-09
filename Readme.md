@@ -102,6 +102,30 @@ signInPage.signIn('test user', 'testpassword'); // will navigate to sign in page
 ...
 ```
 
+Can add submodules for common ui sections like navigation:
+
+``` js
+//NavBar.js
+module.exports = {
+    //Do NOT use Page.create();
+    logoutLink: { get: function() { /*selector */ } };
+}
+
+//HomePage.js
+var navbar = require('./NavBar');
+var homePage = Page.create({
+    .... // homepage specific components
+});
+
+homePage.navbar = Page.create(navbar);
+module.exports = homePage;
+
+//In Test
+it('logout user', function () {
+    homePage.navbar.logoutLink.click();
+    expect('(user to be logged out)');
+});
+```
 Cloning and running Astrolabe's tests
 -------------------------------------
 Clone the github repository.
