@@ -1,51 +1,51 @@
 {
-  "name": "astrolabe",
-  "version": "0.3.1-alpha",
-  "description": "Page objects for protractor",
-  "keywords": [
-    "angular",
-    "angularjs",
-    "protractor",
-    "karma",
-    "e2e",
-    "test",
-    "testing",
-    "webdriver",
-    "webdriverjs",
-    "selenium"
-  ],
-  "author": "stuplum <stuplum@gmail.com>",
-  "licenses": [
-    {
-      "type": "BSD 3-Clause",
-      "url": "http://opensource.org/licenses/BSD-3-Clause"
+    "name": "astrolabe",
+    "version": "0.3.1-alpha",
+    "description": "Page objects for protractor",
+    "keywords": [
+        "angular",
+        "angularjs",
+        "protractor",
+        "karma",
+        "e2e",
+        "test",
+        "testing",
+        "webdriver",
+        "webdriverjs",
+        "selenium"
+    ],
+    "author": "stuplum <stuplum@gmail.com>",
+    "licenses": [
+        {
+            "type": "BSD 3-Clause",
+            "url": "http://opensource.org/licenses/BSD-3-Clause"
+        }
+    ],
+    "main": "lib/astrolabe.js",
+    "directories": {
+        "lib": "./lib",
+        "test": "./test"
+    },
+    "scripts": {
+        "test": "mocha test/*.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/stuplum/astrolabe.git"
+    },
+    "bugs": {
+        "url": "http://github.com/stuplum/astrolabe/issues"
+    },
+    "dependencies": {
+        "underscore": "*",
+        "protractor": "*",
+        "exceptions": "~0.1.1"
+    },
+    "devDependencies": {
+        "mocha": "*",
+        "chai": "*",
+        "sinon": "~1.7.3",
+        "sinon-chai": "~2.4.0",
+        "sandboxed-module": "0.2.1"
     }
-  ],
-  "main": "lib/astrolabe.js",
-  "directories": {
-    "lib": "./lib",
-    "test": "./test"
-  },
-  "scripts": {
-    "test": "mocha test/*.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/stuplum/astrolabe.git"
-  },
-  "bugs": {
-    "url": "http://github.com/stuplum/astrolabe/issues"
-  },
-  "dependencies": {
-    "underscore": "*",
-    "protractor": "*"
-  },
-  "devDependencies": {
-    "mocha": "*",
-    "chai": "*",
-    "sinon": "~1.7.3",
-    "sinon-chai": "~2.4.0",
-    "sandboxed-module": "0.2.1",
-    "exceptions": "~0.1.1"
-  }
 }
