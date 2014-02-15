@@ -134,6 +134,15 @@ describe('Page', function() {
         });
     });
 
+    describe('exceptions', function() {
+        it('should thro an exception', function() {
+
+            var exception = this.page.exception('CustomException');
+            expect(exception.thro).to.throw(exception);
+
+        });
+    });
+
     describe('go', function() {
 
         it('should go to / by default', function() {

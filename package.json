@@ -38,7 +38,8 @@
     },
     "dependencies": {
         "underscore": "*",
-        "protractor": "*"
+        "protractor": "*",
+        "exceptions": "~0.1.1"
     },
     "devDependencies": {
         "mocha": "*",
