@@ -90,12 +90,10 @@ module.exports = Page.create({
 
         this.submit.click();
         var page = this;
-        return this.invalid.then(function (invalidLogin) {
-            return invalidLogin.isDisplayed().then(function (wrongLogin) {
-                if (wrongLogin) {
-                    page.InvalidLoginException.thro(username + ', ' + password + ' is not valid');
-                }
-            });
+        return this.invalid.isDisplayed().then(function (wrongLogin) {
+            if (wrongLogin) {
+                page.InvalidLoginException.thro(username + ', ' + password + ' is not valid');
+            }
         });
     } }
 });
