@@ -83,13 +83,15 @@ module.exports = Page.create({
     // Adds a signIn method to the page object.
     signIn:   { value: function(username, password) {
 
-        this.go();
-
-        this.username.sendKeys(username);
-        this.password.sendKeys(password);
-
-        this.submit.click();
         var page = this;
+
+        page.go();
+
+        page.username.sendKeys(username);
+        page.password.sendKeys(password);
+
+        page.submit.click();
+
         return this.invalid.isDisplayed().then(function (wrongLogin) {
             if (wrongLogin) {
                 page.InvalidLoginException.thro(username + ', ' + password + ' is not valid');
