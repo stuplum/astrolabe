@@ -5,6 +5,7 @@ describe('Page', function() {
         var mockDriver = {
             get: sinon.stub(),
             getTitle: sinon.stub(),
+            debugger: sinon.stub(),
             findElement: sinon.stub(),
             findElements: sinon.stub(),
             getCurrentUrl: sinon.stub(),
@@ -31,7 +32,7 @@ describe('Page', function() {
                 textarea: sinon.stub(),
                 repeater: sinon.stub(),
                 buttonText: sinon.stub(),
-                partialButtonText: sinon.stub(),
+                partialButtonText: sinon.stub()
             },
             getInstance: function() { return mockDriver; }
         };
@@ -135,11 +136,21 @@ describe('Page', function() {
     });
 
     describe('exceptions', function() {
-        it('should thro an exception', function() {
+        it('should throw an exception', function() {
 
             var exception = this.page.exception('CustomException');
             expect(exception.thro).to.throw(exception);
 
+        });
+    });
+
+    describe('debug', function() {
+
+        it('should debug a page', function() {
+
+            this.page.debug();
+
+            this.page.driver.debugger.should.have.been.calledOnce;
         });
     });
 
