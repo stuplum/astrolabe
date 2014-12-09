@@ -10,7 +10,8 @@ describe('Page', function() {
             findElements: sinon.stub(),
             getCurrentUrl: sinon.stub(),
             addMockModule: sinon.stub(),
-            clearMockModules: sinon.stub()
+            clearMockModules: sinon.stub(),
+            browser: sinon.stub()
         };
 
         global.protractor = {
@@ -33,9 +34,10 @@ describe('Page', function() {
                 repeater: sinon.stub(),
                 buttonText: sinon.stub(),
                 partialButtonText: sinon.stub()
-            },
-            getInstance: function() { return mockDriver; }
+            }
         };
+
+        global.browser = mockDriver;
 
         var mockSerializer = {
             serialize: sinon.stub().returns("serialized script")
