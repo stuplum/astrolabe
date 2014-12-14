@@ -32,7 +32,8 @@ describe('Page', function() {
                 textarea: sinon.stub(),
                 repeater: sinon.stub(),
                 buttonText: sinon.stub(),
-                partialButtonText: sinon.stub()
+                partialButtonText: sinon.stub(),
+                cssContainingText: sinon.stub()
             },
             getInstance: function() { return mockDriver; }
         };
@@ -110,7 +111,8 @@ describe('Page', function() {
                                    'textarea',
                                    'repeater',
                                    'buttonText',
-                                   'partialButtonText' ];
+                                   'partialButtonText',
+                                   'cssContainingText'];
 
         describe('api', function () {
             selectorStrategies.forEach(function (scenario) {
