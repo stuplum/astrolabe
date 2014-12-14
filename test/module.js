@@ -11,8 +11,9 @@ describe('Module', function() {
 
         global.protractor = {
             By: 'protractor "By" property',
-            getInstance: function() { return mockDriver; }
         };
+
+        global.browser = mockDriver;
 
         var Module = require('../lib/astrolabe/module');
 

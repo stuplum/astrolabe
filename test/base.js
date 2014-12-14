@@ -5,12 +5,12 @@ describe('Base', function() {
     beforeEach(function() {
 
         this.mockProtractor = {
-            By: 'protractor "By" property',
-            getInstance: sinon.stub()
+            By: 'protractor "By" property'
         };
 
         Base = Sandbox.require('../lib/astrolabe/base', {
-            globals: { protractor: this.mockProtractor }
+            globals: { protractor: this.mockProtractor,
+                       browser: 'driver instance' }
         });
 
         this.base = new Base();
@@ -21,9 +21,6 @@ describe('Base', function() {
     });
 
     it('should have a driver instance', function() {
-
-        this.mockProtractor.getInstance.returns('driver instance');
-
         this.base.driver.should.be.string('driver instance');
     });
 
